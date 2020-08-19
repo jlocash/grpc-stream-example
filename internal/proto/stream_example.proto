@@ -1,0 +1,15 @@
+syntax = "proto3";
+package proto;
+option go_package = ".;proto";
+
+service StreamExample {
+  rpc Subscribe(SubscribeRequest) returns (stream NotificationReply) {}
+}
+
+message SubscribeRequest {
+  string uuid = 1;
+}
+
+message NotificationReply {
+  string data = 1;
+}
